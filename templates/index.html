@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Калькулятор объемов</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        input, select { margin: 10px 0; padding: 5px; }
+        .result { margin-top: 20px; padding: 10px; background: #eee; }
+    </style>
+</head>
+<body>
+    <h1>📐 Калькулятор объемов</h1>
+
+    <form method="POST">
+        <select name="shape">
+            <option value="cube">Куб</option>
+            <option value="sphere">Шар</option>
+            <option value="cylinder">Цилиндр</option>
+        </select><br>
+
+        <div id="inputs">
+            <input type="number" step="any" name="a" placeholder="Сторона"><br>
+        </div>
+
+        <input type="number" name="precision" value="2" placeholder="Точность"><br>
+        <input type="submit" value="Вычислить">
+    </form>
+
+    {% if result is not none %}
+    <div class="result">
+        <strong>Объем:</strong> {{ result }}
+    </div>
+    {% endif %}
+
+    {% if error %}
+    <div style="color:red">{{ error }}</div>
+    {% endif %}
+
+    <script>
+        // Меняем поля ввода в зависимости от фигуры
+        const shape = document.querySelector('select[name="shape"]');
+        const inputs = document.getElementById('inputs');
+
+        function updateInputs() {
+            const val = shape.value;
+            if(val === 'cube') {
+                inputs.innerHTML = '<input type="number" step="any" name="a" placeholder="Сторона куба"><br>';
+            } else if(val === 'sphere') {
+                inputs.innerHTML = '<input type="number" step="any" name="r" placeholder="Радиус шара"><br>';
+            } else if(val === 'cylinder') {
+                inputs.innerHTML = '<input type="number" step="any" name="r" placeholder="Радиус"><br>' +
+                                 '<input type="number" step="any" name="h" placeholder="Высота"><br>';
+            }
+        }
+
+        shape.onchange = updateInputs;
+        updateInputs();
+    </script>
+</body>
+</html>
