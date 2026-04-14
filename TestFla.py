@@ -21,7 +21,7 @@ def volume_cylinder(r, h):
 # ТЕСТЫ
 class TestVolumes(unittest.TestCase):
 
-    # ---------- ТЕСТЫ ДЛЯ КУБА ----------
+    #  ТЕСТЫ ДЛЯ КУБА
     def test_cube_side_3(self):
         """Куб со стороной 3: 3*3*3 = 27"""
         result = volume_cube(3)
@@ -42,7 +42,7 @@ class TestVolumes(unittest.TestCase):
         result = volume_cube(2.5)
         self.assertEqual(result, 15.625)
 
-    # ---------- ТЕСТЫ ДЛЯ ШАРА ----------
+    # ТЕСТЫ ДЛЯ ШАРА
     def test_sphere_radius_1(self):
         """Шар с радиусом 1: (4/3)*π*1*1*1"""
         result = volume_sphere(1)
@@ -67,7 +67,7 @@ class TestVolumes(unittest.TestCase):
         expected = (4 / 3) * math.pi * (1.5 ** 3)
         self.assertAlmostEqual(result, expected, places=5)
 
-    # ---------- ТЕСТЫ ДЛЯ ЦИЛИНДРА ----------
+    #  ТЕСТЫ ДЛЯ ЦИЛИНДРА
     def test_cylinder_radius_1_height_1(self):
         """Цилиндр r=1, h=1: π*1*1 = π"""
         result = volume_cylinder(1, 1)
@@ -92,6 +92,6 @@ class TestVolumes(unittest.TestCase):
         self.assertAlmostEqual(result, expected, places=5)
 
 
-# ========== ЗАПУСК ТЕСТОВ ==========
+#  ЗАПУСК ТЕСТОВ
 if __name__ == '__main__':
     unittest.main()
