@@ -2,7 +2,7 @@ import unittest
 import math
 
 
-# ========== НАШИ ФУНКЦИИ ДЛЯ ВЫЧИСЛЕНИЯ ОБЪЕМОВ ==========
+# ФУНКЦИИ ДЛЯ ВЫЧИСЛЕНИЯ ОБЪЕМОВ
 def volume_cube(a):
     """Объем куба: сторона * сторона * сторона"""
     return a * a * a
@@ -18,7 +18,7 @@ def volume_cylinder(r, h):
     return math.pi * r * r * h
 
 
-# ========== ТЕСТЫ ==========
+# ТЕСТЫ
 class TestVolumes(unittest.TestCase):
 
     # ---------- ТЕСТЫ ДЛЯ КУБА ----------
